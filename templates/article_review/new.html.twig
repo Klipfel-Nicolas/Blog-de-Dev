@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ArticleReview{% endblock %}
+
+{% block body %}
+    <div class="new-review p-5 d-flex flex-column justify-content-between h-100">
+        <h1>Laisser un commentaire</h1>
+
+        <div>
+            <div>   
+                
+                <div class='mb-4 wrapper'>
+                    <a href="{{ path("blog_article_show", { 'slug': slug}) }}" class="btn-purple">Retour</a>
+                </div>
+                
+                {{ include('article_review/_form.html.twig') }}
+                
+            </div>
+
+            <div class="p-5 text-center">
+                <img class="draw" src="/uploads/com.svg" alt="draw comments">
+            </div>
+        </div>
+    </div>
+{% endblock %}

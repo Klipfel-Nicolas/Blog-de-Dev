@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+    <div class="p-5 h-100">
+        <h1>Register</h1>
+        
+        <div class="container d-flex justify-content-around align-items-center mt-5">
+            <div class="col-5">
+                {{ form_start(registrationForm) }}
+                    {{ form_label(registrationForm.firstName, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(registrationForm.firstName, {'attr': {'class': 'form-control'}}) }}
+
+                    {{ form_label(registrationForm.lastName, 'Prénom', {'label_attr': {'class': 'form-label mt-3'}}) }}
+                    {{ form_widget(registrationForm.lastName, {'attr': {'class': 'form-control'}}) }}
+
+                    {{ form_label(registrationForm.email, 'Adresse mail', {'label_attr': {'class': 'form-label mt-3'}}) }}
+                    {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+                    
+                    {{ form_label(registrationForm.plainPassword, 'Mot de passe', {'label_attr': {'class': 'form-label mt-3'}}) }}
+                    {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control mb-2'}}) }}
+                    
+                    {# {{ form_row(registrationForm.plainPassword, {
+                        label: 'Password'
+                    }) }}#}
+                    {{ form_row(registrationForm.agreeTerms) }}
+                     
+                    <button type="submit" class="btn-custom my-5">Register</button>
+                {{ form_end(registrationForm) }}
+            </div>
+
+            <div class="col-6">
+                <img  src="/uploads/register.svg" class="img-fluid" alt="image letter">
+            </div>
+        </div>
+    </div>
+{% endblock %}

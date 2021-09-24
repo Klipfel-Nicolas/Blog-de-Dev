@@ -1,0 +1,9 @@
+<div class="text-center">
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+
+        <div class="text-end mt-4">
+            <button class="btn-custom">{{ button_label|default('commenter') }}</button>
+        </div>
+    {{ form_end(form) }}
+</div>

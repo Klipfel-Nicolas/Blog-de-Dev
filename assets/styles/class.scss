@@ -1,0 +1,50 @@
+.windowSize{
+    min-height: 100vh;
+    min-width: 95vw;
+    margin: 0 auto;
+}
+
+//BTN
+.btn-custom {
+    padding: .3rem 1.5rem;
+    border: 2px solid $green-m;
+    color: $green-m;
+    transition: all .2s linear;
+    background-color: transparent;
+}
+
+.btn-custom:hover {
+    color: $green-l;
+    border-color: $green-l;
+    
+}
+
+.btn-purple {
+    padding: .3rem 1.5rem;
+    border: 2px solid $purple2;
+    color: $purple2;
+    transition: all .2s linear;
+    background-color: transparent !important;
+}
+
+.btn-purple:hover {
+    color: $purple1;
+    border-color: $purple1;
+}
+
+.create-at{
+    font-size: .8rem;
+    color: $grey-ml;
+}
+
+.wrapper{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.bottom {
+    position: absolute !important;
+    z-index: 3;
+    bottom: 10vh;
+    left: 45vw;
+}

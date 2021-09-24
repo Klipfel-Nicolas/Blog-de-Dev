@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+    {% block body %}
+        <div class="form">
+            <h1 class="m-5">Contactez-moi</h1>
+            
+            <div class="container d-flex justify-content-around align-items-center mt-5">
+                <div class="col-5">
+                    {{ form_start(form) }}
+
+                    {{ form_label(form.name, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
+                    {{ form_widget(form.name) }}
+
+                    {{ form_label(form.lastname, 'Prénom', {'label_attr': {'class': 'form-label mt-3'}}) }}
+                    {{ form_widget(form.lastname) }}
+
+                    {{ form_label(form.email, 'Adresse mail', {'label_attr': {'class': 'form-label mt-3'}}) }}
+                    {{ form_widget(form.email) }}
+
+                    {{ form_label(form.sujet, 'Sujet', {'label_attr': {'class': 'form-label mt-3'}}) }}
+                    {{ form_widget(form.sujet) }}
+
+                    {{ form_label(form.content, 'Message', {'label_attr': {'class': 'form-label mt-3'}}) }}
+                    {{ form_widget(form.content) }}
+
+                    {{ form_rest(form) }}
+                        <input class="btn-custom mt-4" type='submit' value="Envoyer">
+                    {{ form_end(form) }}
+                </div>
+                
+                <div class="">
+                    <img src="/uploads/letter.svg" alt="image letter">
+                </div>
+            </div>
+        </div>
+    {% endblock body %}

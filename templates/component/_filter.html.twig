@@ -1,0 +1,19 @@
+{{ form_start(form)}}
+<div class="style-filter p-3 m-2 ">
+    <div class="d-flex justify-content-around">
+        <div class='mx-4'>
+            <i class="fas fa-search mx-2"></i>
+            {{ form_label(form.query) }}
+            {{ form_widget(form.query) }}
+        </div>
+
+        <div>
+            <i class="fas fa-tag"></i>
+            <label>Tags :</label>
+            
+            {{ form_row(form.tags)}}
+        </div>
+    </div>
+    <button type="submit" class="btn-custom">Filtrer</button>
+</div>
+{{ form_end(form)}}

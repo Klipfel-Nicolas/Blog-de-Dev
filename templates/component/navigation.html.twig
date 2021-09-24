@@ -1,0 +1,39 @@
+{% set route_name = app.request.attributes.get('_route') %}
+
+<nav class="navBar d-flex flex-column justify-content-between ps-4 py-5 ms-4 col-md-2 col-4 sticky-top">
+
+    <ul class="d-flex flex-column justify-content-between">    
+        {% if app.user %}
+            <li class="my-2"><a href="{{ path("app_logout") }}"><i class="fas fa-sign-out-alt fa-lg"></i><span> Log-out</span></a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+                <li class="my-2"><a href="{{ path("admin_index") }}"><i class="fas fa-crown fa-lg"></i><span> Admin</span></a></li>
+            {% endif %}
+        {% else %}
+            <li class="my-2"><a href="{{ path("app_register") }}"><i class="fas fa-pen fa-lg"></i><span> S'inscrire</span></a></li>
+            <li class="my-2"><a href="{{ path("app_login") }}"><i class="fas fa-sign-in-alt fa-lg"></i><span> Log-in</span></a></li>
+        {% endif %}
+    </ul>
+    
+    <ul class="h-25 d-flex flex-column justify-content-between">
+        
+        <li {% if route_name matches '{"^home"}' %} class="active"{% endif %}>
+            <a href="{{ path("home")}}"><i class="fas fa-home fa-lg"></i><span> home<span></a>
+        </li>
+        <li {% if route_name matches '{"^blog_index"}' %} class="active"{% endif %}>
+            <a href="{{ path("blog_index") }}"><i class="fas fa-book-reader fa-lg"></i><span> Blog</span></a>
+        </li>
+        <li>
+            <a href="{{ path("ressource_index")}}"><i class="fas fa-folder-open fa-lg"></i><span> Ressources</span></a>
+        </li>
+
+    </ul>    
+
+    
+
+    <ul class="d-flex flex-column justify-content-between">
+        <li><a href="{{ path("send_mail_contact") }}"><i class="far fa-paper-plane fa-lg"></i><span> Contact</span></a></li>
+    </ul>
+    
+    
+
+</nav>

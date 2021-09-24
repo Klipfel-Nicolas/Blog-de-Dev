@@ -1,0 +1,23 @@
+.ressource {
+    .card-ressource{
+
+        h1{
+            a,
+            i{
+               color: $green-m;
+               
+               
+            }
+            &:hover{
+                i,
+                a{
+                    color: $green-l;
+                }        
+            }
+        }
+        img{
+            width: 400px;
+            height: 200px;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+			{% block title %}World Wild Dev{% endblock %}
+		</title>
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+        
+        <div class="d-flex windowSize justify-content-between">
+            
+            {% include "component/navigation.html.twig" %}
+            
+            <div class="w-100">
+                {% block body %}{% endblock %}
+            </div>
+
+        </div>
+        
+        <script src="https://kit.fontawesome.com/68289d3e08.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </body>
+</html>

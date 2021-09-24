@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}  - Blog {% endblock %}
+
+{% block body %}
+    <div class="wrapper blog p-3">
+        <div>
+            {% include "component/_filter.html.twig" with {form: form} only %} 
+        </div>
+        {% for article in articles %}
+            <article class="p-4 justify-content-between rounded-3 ">
+
+                <div class="articleContent d-flex flex-column justify-content-between ">
+
+                    <div class="articleHeader d-flex justify-content-between container border-end">
+                        <h2 class="fs-2 col-10">{{ article.title }} </h2>
+                        <p class="align-self-end secondaryText col-2">le {{ article.createdAt|date("d/m/Y") }}</p>
+                    </div>
+
+                    <div class="articleImage  p-2 d-flex align-items-center">
+                        <img class="w-50" src="/uploads/{{ article.poster }}" alt="{{ article.title }}">
+                        <p class="article-content px-2">
+                            {{ article.content|slice(0, 450) ~ '...' }}
+                        </p>
+                    </div>
+
+                    <div class="article-tags">
+                        <ul class="d-flex">
+                            {% for tag in article.tags %}
+                                <li class="mx-2">
+                                    <i class="fas fa-tag"></i>
+                                    {{tag.intitule}}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    
+                    <div class="text-end px-5">
+                        <a href="{{ path('blog_article_show', {'slug': article.slug}) }}" class="btn-custom ">Lire la suite</a>
+                    </div>
+
+                    <div class="d-flex mt-1">
+                        <div>
+                            <a href="{{ path('blog_article_like', {'slug': article.slug}) }}" class=" js-like">
+                                
+                                {% if app.user and article.isLikedByUser(app.user) %}
+                                    <i class="fas fa-thumbs-up"></i>
+                                {% else %}
+                                    <i class="far fa-thumbs-up"></i>
+                                {% endif %}
+
+                                <span class="js-likes">{{ article.likes | length }}</span>
+                                <span class="js-label">j'aime</span>
+                            </a>
+                        </div>
+
+                        <div>
+                            <a href="#" class="px-4">
+                                <i class="far fa-comment-alt"></i>
+                                <span class="js-coment">{{ article.articleReviews | length }}</span>
+                                <span class="js-label">commentaire</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </article>
+        {% endfor %}
+        
+        <div>
+            {{ knp_pagination_render(articles) }}
+        </div>
+
+    </div>
+{% endblock %}

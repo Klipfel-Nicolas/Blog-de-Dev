@@ -1,0 +1,21 @@
+nav.navBar{
+    height: 90vh;
+    margin-left: 10px;
+    position: sticky;
+    top: 5vh;
+    border: 1px solid $green-l;
+    i{
+        color: $green-f;
+    }
+    li:hover{
+        a span,
+        i{
+            color: $green-l;
+        }
+    }
+}
+
+nav.navBar,
+nav.navBar *{
+    background: $black-m;
+}

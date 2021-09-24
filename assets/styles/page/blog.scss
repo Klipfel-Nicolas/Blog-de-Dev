@@ -1,0 +1,89 @@
+//FILTRES
+
+.style-filter{
+   box-shadow: 0px -2px 25px $black-m;
+  
+    #tags{
+        input{
+            margin: 5px;
+        }
+        
+    }
+}
+
+.style-filter,
+.style-filter div,
+.style-filter label {
+     background: $grey-m;
+}
+
+//INDEX
+
+.blog{
+    article{
+        margin: 150px 20px;
+        box-shadow: 1px 1px 20px 1px $black-d;
+        
+    }
+    article,
+    article *{
+        background-color: $black-d;
+    }
+    
+    
+
+    ul.pagination {
+        .page-item.active .page-link{
+            background-color: $green-m !important;
+            border-color: #ffffff !important;
+            color: $grey-d !important;
+        }
+        .page-item.disabled .page-link{
+            color: $green-m !important;
+            background-color: $grey-d !important;
+        }
+        .page-link {
+            color: $green-m !important;
+            background-color: $grey-d !important;
+        }
+    }
+}
+
+//SHOW
+
+.review  *{
+        background: $grey-m;
+}
+
+.review {
+    li{
+        border-radius: 15px;
+        
+    }
+}
+
+// REVIEW NEW 
+
+.new-review{
+    label{
+        display: none;
+    }
+    textarea {
+        border: 1px solid $green-m;
+        width: 80%;
+        height: 150px;
+        border-radius: 15px;
+        resize: none;
+        padding: 10px;
+        outline: none !important;
+    }
+    textarea:focus {
+        border-color: $orange;
+    }
+
+    .btn-custom{
+        display: inline-block;
+        margin-right: 10%;
+    }
+    
+}
